@@ -21,14 +21,14 @@ app.get("/", function (req, res) {
     var day = today.toLocaleDateString("en-US", options);
 
     res.render("list", { kindOfDay: day, newListItems: items });
+});
 
-    app.post("/", function (req, res) {
-        item = req.body.newItem;
-        items.push(item);
-        res.redirect("/");
-    });
-})
-items = [];
+app.post("/", function (req, res) {
+    item = req.body.newItem;
+    items.push(item);
+    res.redirect("/");
+});
+
 app.listen(3000, function () {
     console.log("server started");
 })
